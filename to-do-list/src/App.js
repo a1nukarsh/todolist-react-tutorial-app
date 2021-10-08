@@ -20,25 +20,24 @@ function App() {
 
   const addTodo = (title, desc)=>{
     console.log("I am adding this todo, ", title, desc)
-    let sno = todos[todos.length-1].sno +1;
+    let sno
+    if(todos.length==0){
+      sno = 0
+    }
+    else{
+      sno = todos[todos.length-1].sno +1;
+    }
+    const myTodo ={
+      sno: sno,
+      title: title,
+      desc: desc,
+    }
+    setTodos([...todos, myTodo])
+    console.log(myTodo)
   }
 
   const [todos, setTodos] = useState([
-    {
-      sno: 1,
-      title: "Go to market",
-      desc: "Get this job done",
-    },
-    {
-      sno: 2,
-      title: "Go to mall",
-      desc: "Get this job done",
-    },
-    {
-      sno: 3,
-      title: "Go to taj mahal",
-      desc: "Get this job done",
-    },
+    
   ]);
   return (
     <>
